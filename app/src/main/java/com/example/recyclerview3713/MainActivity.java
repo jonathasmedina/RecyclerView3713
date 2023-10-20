@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     ArrayList<Usuario> usuarioArrayList = new ArrayList<Usuario>();
-    int[] imagensUsuarios = {R.drawable.ic_stat_name};
+    int[] imagensUsuarios = {R.drawable.ic_stat_name, R.drawable.ic_stat_name2, R.drawable.ic_stat_name3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void popularArrayList() {
         usuarioArrayList.add(new Usuario("joao", 15, imagensUsuarios[0]));
-        usuarioArrayList.add(new Usuario("joao2", 151, imagensUsuarios[0]));
-        usuarioArrayList.add(new Usuario("joao3", 152, imagensUsuarios[0]));
+        usuarioArrayList.add(new Usuario("joao2", 151, imagensUsuarios[1]));
+        usuarioArrayList.add(new Usuario("joao3", 152, imagensUsuarios[2]));
         usuarioArrayList.add(new Usuario("joao4", 135, imagensUsuarios[0]));
-        usuarioArrayList.add(new Usuario("joao5", 145, imagensUsuarios[0]));
-        usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[0]));
+        usuarioArrayList.add(new Usuario("joao5", 145, imagensUsuarios[1]));
+        usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[2]));
     }
 }

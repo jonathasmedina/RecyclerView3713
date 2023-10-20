@@ -20,8 +20,7 @@ class MinhaClasseRecyclerAdapter extends RecyclerView.Adapter<MinhaClasseRecycle
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView nome_;
         TextView idade_;
         ImageView imagem_;
@@ -30,6 +29,7 @@ class MinhaClasseRecyclerAdapter extends RecyclerView.Adapter<MinhaClasseRecycle
             nome_ = itemView.findViewById(R.id.nome);
             idade_ = itemView.findViewById(R.id.idade);
             imagem_ = itemView.findViewById(R.id.imageView);
+
         }
     }
 
