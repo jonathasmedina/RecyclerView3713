@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +21,7 @@ class MinhaClasseRecyclerAdapter extends RecyclerView.Adapter<MinhaClasseRecycle
     }
 
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nome_;
         TextView idade_;
         ImageView imagem_;
@@ -30,9 +31,18 @@ class MinhaClasseRecyclerAdapter extends RecyclerView.Adapter<MinhaClasseRecycle
             idade_ = itemView.findViewById(R.id.idade);
             imagem_ = itemView.findViewById(R.id.imageView);
 
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(itemView.getContext(), "Removido", Toast.LENGTH_SHORT).show();
+
+            usuarioArrayList.remove(getLayoutPosition());
+            notifyItemRemoved(getLayoutPosition());
+            notifyItemRangeChanged(getLayoutPosition(), usuarioArrayList.size());
         }
     }
-
 
     @NonNull
     @Override
