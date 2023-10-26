@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         configurarAdapter();
 
         //efeito visual de snap - exibe parte do elemento que está além do limite da tela
-        SnapHelper snapHelper = new LinearSnapHelper();
+        SnapHelper snapHelper = new LinearSnapHelper(); // ou PagerSnapHelper(); para simular ViewPager - elemento tela toda
         snapHelper.attachToRecyclerView(recyclerView);
 
     }
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 new MinhaClasseRecyclerAdapter(usuarioArrayList);
 
         RecyclerView.LayoutManager layoutManager =
-                new LinearLayoutManager(getApplicationContext());
+                new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(minhaClasseRecyclerAdapter);
