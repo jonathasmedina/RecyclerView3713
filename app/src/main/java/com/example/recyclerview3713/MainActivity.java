@@ -2,7 +2,9 @@ package com.example.recyclerview3713;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import android.os.Bundle;
 
@@ -25,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         configurarAdapter();
 
+        //efeito visual de snap - exibe parte do elemento que está além do limite da tela
+        SnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
+
     }
 
     private void configurarAdapter() {
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(minhaClasseRecyclerAdapter);
+
     }
 
     private void popularArrayList() {
@@ -45,5 +52,11 @@ public class MainActivity extends AppCompatActivity {
         usuarioArrayList.add(new Usuario("joao4", 135, imagensUsuarios[0]));
         usuarioArrayList.add(new Usuario("joao5", 145, imagensUsuarios[1]));
         usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[2]));
+        usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[2]));
+        usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[2]));
+        usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[2]));
+        usuarioArrayList.add(new Usuario("joao6", 145, imagensUsuarios[2]));
     }
+
+
 }
