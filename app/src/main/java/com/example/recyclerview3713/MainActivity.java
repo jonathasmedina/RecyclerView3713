@@ -13,8 +13,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
     MinhaClasseRecyclerAdapter minhaClasseRecyclerAdapter;
     SearchView searchView;
+
     RecyclerView recyclerView;
     ArrayList<Usuario> usuarioArrayList = new ArrayList<Usuario>();
     ArrayList<Usuario> usuarioArrayListCopia = new ArrayList<Usuario>();
@@ -32,14 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         configurarAdapter();
 
-        //efeito visual de snap - exibe parte do elemento que está além do limite da tela
-        SnapHelper snapHelper = new LinearSnapHelper(); // ou PagerSnapHelper(); para simular ViewPager - elemento tela toda
-        snapHelper.attachToRecyclerView(recyclerView);
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-
                 return false;
             }
 
@@ -49,30 +46,32 @@ public class MainActivity extends AppCompatActivity {
 
                 usuarioArrayList.clear();
 
-                if (s.isEmpty()) {
+                if(s.isEmpty()){
                     usuarioArrayList.addAll(usuarioArrayListCopia);
-                } else {
+                }
+                else{
                     s = s.toLowerCase();
-                    //percorre o array com os dados originais (todos os favoritos)
-                    for (Usuario item : usuarioArrayListCopia) {
-                        //caso, nos dados originais, exista o termo procurado, popule o array vazio com o item
-                        if (item.getNome().toLowerCase().contains(s)) {
+                    for(Usuario item: usuarioArrayListCopia){
+                        if(item.getNome().toLowerCase().contains(s)){
                             usuarioArrayList.add(item);
                         }
                     }
+
+                    minhaClasseRecyclerAdapter.notifyDataSetChanged();
                 }
 
-                minhaClasseRecyclerAdapter.notifyDataSetChanged();
                 return false;
             }
         });
 
-
+        //efeito visual de snap - exibe parte do elemento que está além do limite da tela
+        SnapHelper snapHelper = new LinearSnapHelper(); // ou PagerSnapHelper(); para simular ViewPager - elemento tela toda
+        snapHelper.attachToRecyclerView(recyclerView);
 
     }
 
     private void configurarAdapter() {
-        minhaClasseRecyclerAdapter =
+         minhaClasseRecyclerAdapter =
                 new MinhaClasseRecyclerAdapter(usuarioArrayList);
 
        RecyclerView.LayoutManager layoutManager =
